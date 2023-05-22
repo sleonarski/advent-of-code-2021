@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-public class Solution {
+public class PartOne {
 
     public static void main(String[] args) throws IOException {
 
