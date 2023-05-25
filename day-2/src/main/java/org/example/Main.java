@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String path = ("src/main/resources/data.txt");
+        String path = ("day-2/src/main/resources/data.txt");
 
         System.out.println(solvePartOne(path));
         System.out.println(solvePartTwo(path));

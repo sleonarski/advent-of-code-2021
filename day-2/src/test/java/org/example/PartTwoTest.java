@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PartTwoTest {
 
     private static final String TEST_DATA = "src/test/resources/test-data.txt";
-    private static final String EMPTY = "C:/Users/alan/IdeaProjects/advent-of-code/advent-of-code-2021/day-2/src/test/resources/empty-list.txt";
-    private static final String ONE_VALUE_LIST = "C:\\Users\\alan\\IdeaProjects\\advent-of-code\\advent-of-code-2021\\day-2\\src\\test\\resources\\one-value.txt";
-    private static final String SAME_VALUE_LIST = "C:\\Users\\alan\\IdeaProjects\\advent-of-code\\advent-of-code-2021\\day-2\\src\\test\\resources\\same-value.txt";
+    private static final String EMPTY = "src/test/resources/empty-list.txt";
+    private static final String ONE_VALUE_LIST = "src/test/resources/one-value.txt";
+    private static final String SAME_VALUE_LIST = "src/test/resources/same-value.txt";
 
     @Test
     void shouldRunPartTwo() {
