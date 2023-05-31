@@ -2,6 +2,9 @@ package org.example;
 
 import java.util.List;
 
+import static org.example.DataReader.convertToInteger;
+import static org.example.DataReader.readFileAsList;
+
 class PartTwo {
 
     private PartTwo() {
@@ -9,7 +12,8 @@ class PartTwo {
 
     public static int runPartTwo(String path) {
 
-        List<Integer> dataList = DataReader.getDataAsIntegersList(path);
+        List<String> inputList = readFileAsList(path);
+        List<Integer> dataList = convertToInteger(inputList);
         final int windowSize = 3;
         int increased = 0;
         int prevWindow = 0;

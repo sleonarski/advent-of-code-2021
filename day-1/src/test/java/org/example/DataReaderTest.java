@@ -1,6 +1,6 @@
 package org.example;
 
-import static org.example.DataReader.getDataAsIntegersList;
+import static org.example.DataReader.convertToInteger;
 import static org.example.DataReader.readFileAsList;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,6 +14,8 @@ class DataReaderTest {
     private static final String ONE_ELEMENT = "src/test/resources/one-element.txt";
     private static final String SAME_ELEMENT = "src/test/resources/same-element.txt";
     private static final String NOT_NUMBER = "src/test/resources/not-number-list.txt";
+
+    List<String> testList = List.of("2","3","4","5","6");
 
     @Test
     void shouldReadFileAsList() {
@@ -47,7 +49,7 @@ class DataReaderTest {
     @Test
     void shouldReturnListWithSameElement() {
         //when
-        List<Integer> integersList = getDataAsIntegersList(SAME_ELEMENT);
+        List<Integer> integersList = convertToInteger(testList);
 
         //then
         assertEquals(12,integersList.size());
@@ -57,7 +59,7 @@ class DataReaderTest {
     @Test
     void shouldGetDataAsIntegersList() {
         //when
-        List<Integer> integersList = getDataAsIntegersList(NOT_NUMBER);
+        List<Integer> integersList = convertToInteger(testList);
 
         //then
         assertEquals(0,integersList.size());

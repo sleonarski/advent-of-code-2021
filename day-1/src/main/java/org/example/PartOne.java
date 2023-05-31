@@ -11,7 +11,8 @@ class PartOne {
 
     public static int runPartOne(String path) {
 
-        List<Integer> dataList = getDataAsIntegersList(path);
+        List<String> inputList = readFileAsList(path);
+        List<Integer> dataList = convertToInteger(inputList);
         int increased = 0;
 
         if (!dataList.isEmpty()) {

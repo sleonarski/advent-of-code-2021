@@ -11,8 +11,8 @@ public class DataReader {
     private DataReader() {
     }
 
-    public static List<Integer> getDataAsIntegersList(String path) {
-        return readFileAsList(path).stream().filter(DataReader::isDigit).map(Integer::parseInt).toList();
+    public static List<Integer> convertToInteger(List<String> inputList) {
+        return inputList.stream().filter(DataReader::isDigit).map(Integer::parseInt).toList();
     }
 
     public static List<String> readFileAsList(String path) {
