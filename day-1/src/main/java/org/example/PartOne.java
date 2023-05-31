@@ -22,8 +22,7 @@ class PartOne {
                 }
                 prevVal = currentVal;
             }
-            return increased;
         }
-        return 0;
+        return increased;
     }
 }

@@ -12,6 +12,8 @@ class DataReaderTest {
     private static final String PATH = "src/test/resources/input.txt";
     private static final String EMPTY_LIST = "src/test/resources/empty.txt";
     private static final String ONE_ELEMENT = "src/test/resources/one-element.txt";
+    private static final String SAME_ELEMENT = "src/test/resources/same-element.txt";
+    private static final String NOT_NUMBER = "src/test/resources/not-number-list.txt";
 
     @Test
     void shouldReadFileAsList() {
@@ -43,12 +45,21 @@ class DataReaderTest {
     }
 
     @Test
-    void shouldGetDataAsIntegersList() {
+    void shouldReturnListWithSameElement() {
         //when
-        List<Integer> integersList = getDataAsIntegersList(PATH);
+        List<Integer> integersList = getDataAsIntegersList(SAME_ELEMENT);
 
         //then
-        assertEquals(10,integersList.size());
+        assertEquals(12,integersList.size());
         assertInstanceOf(Integer.class, integersList.get(0));
+    }
+
+    @Test
+    void shouldGetDataAsIntegersList() {
+        //when
+        List<Integer> integersList = getDataAsIntegersList(NOT_NUMBER);
+
+        //then
+        assertEquals(0,integersList.size());
     }
 }
