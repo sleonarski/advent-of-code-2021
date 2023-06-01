@@ -32,6 +32,7 @@ public class DataReader {
         try {
             Integer.parseInt(s);
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             return false;
         }
         return true;
