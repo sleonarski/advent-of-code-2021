@@ -10,26 +10,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-<<<<<<<< HEAD:pom.xml
-    <groupId>org.example</groupId>
-    <artifactId>advent-of-code-2021</artifactId>
-    <version>1.0-SNAPSHOT</version>
-========
-    <artifactId>day-1</artifactId>
->>>>>>>> b76596e (added pom structure):day-1/pom.xml
+    <artifactId>day-2</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.9.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
