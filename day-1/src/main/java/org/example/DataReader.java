@@ -31,10 +31,9 @@ public class DataReader {
     private static boolean isDigit(String s) {
         try {
             Integer.parseInt(s);
+            return true;
         } catch (NumberFormatException e) {
-            e.printStackTrace();
             return false;
         }
-        return true;
     }
 }

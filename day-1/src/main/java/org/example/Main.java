@@ -6,8 +6,8 @@ public class Main {
 
         String path = "day-1/src/main/resources/input.txt";
 
-        System.out.println(PartOne.runPartOne(path));
+        System.out.println(PartOne.runPartOne(path, 1));
 
-        System.out.println(PartTwo.runPartTwo(path));
+        System.out.println(PartTwo.runPartTwo(path, 3));
     }
 }

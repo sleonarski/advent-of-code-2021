@@ -14,15 +14,12 @@ public class AggregatedWindow {
     }
 
     public void nextNumber(int number){
-        if (structureList.size() != windowSize) {
+        if (structureList.size() < windowSize) {
             structureList.add(number);
         } else {
             Integer beforeSum = structureList.stream().reduce(0, Integer::sum);
-            structureList.removeLast();
-
-            if (structureList.size() < windowSize) {
-                structureList.add(number);
-            }
+            structureList.removeFirst();
+            structureList.add(number);
             Integer afterSum = structureList.stream().reduce(0, Integer::sum);
             count += afterSum > beforeSum ? 1 : 0;
         }

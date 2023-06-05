@@ -10,7 +10,6 @@ class AggregatedWindowTest {
     private static final List<Integer> TEST_DATA = List.of(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
     private static final int WINDOW_SIZE = 3;
 
-
     @Test
     void shouldAddNextNumber() {
         //given
@@ -20,9 +19,9 @@ class AggregatedWindowTest {
         }
 
         //when
-        int c = aggregatedWindow.getCount();
+        int  count = aggregatedWindow.getCount();
 
         //then
-        assertEquals(7, c);
+        assertEquals(5, count);
     }
 }
