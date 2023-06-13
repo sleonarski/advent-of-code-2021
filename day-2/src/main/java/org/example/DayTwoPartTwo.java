@@ -2,20 +2,15 @@ package org.example;
 
 import java.util.List;
 
-public class PartTwo {
-    /*
-    forward 5
-    down 5
-    forward 8
-    up 3
-    down 8
-    forward 2
-     */
+import static org.example.utils.DataReader.*;
+
+public class DayTwoPartTwo {
 
     public static int solvePartTwo(String path) {
+        return solvePartTwo(readFileAsList(path));
+    }
 
-        List<String> dataList = DataReader.getDataFromFile(path);
-
+    public static int solvePartTwo(List<String> dataList) {
         if (dataList.isEmpty()) {
             return 0;
         }
@@ -23,7 +18,7 @@ public class PartTwo {
     }
 
     private static List<Command> parse(List<String> dataList) {
-        return dataList.stream().map(Command::new).toList();
+        return dataList.stream().map(Command::validInput).toList();
     }
 
     private static int calculate(List<Command> commands) {

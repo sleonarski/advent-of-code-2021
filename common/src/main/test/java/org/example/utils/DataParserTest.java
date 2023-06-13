@@ -55,6 +55,7 @@ class DataParserTest {
 
     @Test
     void shouldThrowNumberFormatException() {
+        //expected
         assertThrowsExactly(NumberFormatException.class, () -> convertToInteger(NOT_NUMBER));
     }
 }

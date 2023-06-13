@@ -1,10 +1,11 @@
 package org.example;
 
-import static org.example.PartOne.*;
-import static org.example.PartTwo.*;
+import static org.example.DayTwoPartOne.solvePartOne;
+import static org.example.DayTwoPartOne.solvePartOne2;
+import static org.example.DayTwoPartTwo.solvePartTwo;
 
 //TODO: delete day-2 module, add Submarine class that can takes commands, try with collect/reduce
-public class Main {
+class DayTwo {
 
     public static void main(String[] args) {
 
@@ -19,6 +20,7 @@ public class Main {
         String path = ("day-2/src/main/resources/data.txt");
 
         System.out.println(solvePartOne(path));
+        System.out.println(solvePartOne2(path));
         System.out.println(solvePartTwo(path));
     }
 }

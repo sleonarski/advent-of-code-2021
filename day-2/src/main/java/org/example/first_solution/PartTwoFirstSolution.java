@@ -1,6 +1,6 @@
 package org.example.first_solution;
 
-import static org.example.DataReader.getDataFromFile;
+import static org.example.utils.DataReader.readFileAsList;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class PartTwoFirstSolution {
         int forwardTotal = 0;
         int depth = 0;
 
-        List<String> dataList = getDataFromFile(path);
+        List<String> dataList = readFileAsList(path);
 
         for (String data : dataList) {
             int number = Integer.parseInt(data.substring(data.length() - 1));

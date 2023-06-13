@@ -1,10 +1,12 @@
 package org.example.first_solution;
 
-import static org.example.DataReader.getDataFromFile;
+import org.example.utils.DataReader;
 
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
+import static org.example.utils.DataReader.readFileAsList;
 
 class PartOneFirstSolution {
 
@@ -16,7 +18,7 @@ class PartOneFirstSolution {
         final String FORWARD = "forward";
         final String UP = "up";
         final String DOWN = "down";
-        List<String> dataList = getDataFromFile(path);
+        List<String> dataList = readFileAsList(path);
 
         if (dataList.isEmpty()) {
             return 0;

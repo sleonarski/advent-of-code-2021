@@ -1,13 +1,13 @@
 package org.example;
 
 import static java.util.Collections.emptyList;
-import static org.example.PartOne.runPartOne;
+import static org.example.DayOnePartOne.runPartOne;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class PartOneTest {
+class DayOnePartOneTest {
 
     private static final Integer WINDOW_SIZE = 1;
     private static final List<Integer> INPUT_LIST = List.of(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);

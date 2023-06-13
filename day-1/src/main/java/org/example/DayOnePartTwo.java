@@ -4,16 +4,17 @@ import static org.example.utils.DataParser.parseInput;
 
 import java.util.List;
 
-public class PartOne {
 
-    private PartOne() {
+public class DayOnePartTwo {
+
+    private DayOnePartTwo() {
     }
 
-    public static int runPartOne(String path, int windowSize) {
-        return runPartOne(parseInput(path), windowSize);
+    public static int runPartTwo(String path, int windowSize) {
+        return runPartTwo(parseInput(path), windowSize);
     }
 
-    static int runPartOne(List<Integer> parsedInput, int windowSize) {
+    public static int runPartTwo(List<Integer> parsedInput, int windowSize) {
         return parsedInput.stream().collect(() -> new AggregatedWindow(windowSize), AggregatedWindow::nextNumber, (aw1, aw2) -> {
             throw new CollectingException();
         }).getCount();

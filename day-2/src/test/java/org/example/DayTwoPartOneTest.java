@@ -1,17 +1,21 @@
 package org.example;
 
-import static org.example.PartOne.*;
+import static java.util.Collections.emptyList;
+import static org.example.DayTwoPartOne.solvePartOne;
+import static org.example.utils.DataParser.convertToInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class PartOneTest {
+import java.util.List;
 
-    private static final String TEST_DATA = "src/test/resources/test-data.txt";
-    private static final String EMPTY = "src/test/resources/empty-list.txt";
-    private static final String ONE_VALUE_LIST = "src/test/resources/one-value.txt";
-    private static final String SAME_VALUE_LIST = "src/test/resources/same-value.txt";
-    private static final String INVALID_VALUE_LIST = "src/test/resources/invalid-input.txt";
+class DayTwoPartOneTest {
+
+    private static final List<String> TEST_DATA = List.of("forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2");
+    private static final List<String> EMPTY = emptyList();
+    private static final List<String> ONE_VALUE_LIST = List.of("forward 5");
+    private static final List<String> SAME_VALUE_LIST = List.of("forward 5", "forward 5", "forward 5", "forward 5", "forward 5", "forward 5");
+    private static final List<String> INVALID_VALUE_LIST = List.of("forward ex", "random value", "245 52 8", "e", " ", "TestV4lU3");
 
     @Test
     void shouldRunPartOne() {
@@ -51,10 +55,7 @@ class PartOneTest {
 
     @Test
     void shouldRunPartOneOnInvalidValueList() {
-        //when
-        int solution = solvePartOne(INVALID_VALUE_LIST);
-
-        //then
-        assertEquals(0, solution);
+        //expected
+        assertThrowsExactly(RuntimeException.class, () -> solvePartOne(INVALID_VALUE_LIST));
     }
 }
