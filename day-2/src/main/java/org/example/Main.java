@@ -3,6 +3,7 @@ package org.example;
 import static org.example.PartOne.*;
 import static org.example.PartTwo.*;
 
+//TODO: delete day-2 module, add Submarine class that can takes commands, try with collect/reduce
 public class Main {
 
     public static void main(String[] args) {
