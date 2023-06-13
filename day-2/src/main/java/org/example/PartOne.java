@@ -1,55 +1,43 @@
 package org.example;
 
-import static org.example.DataReader.getDataFromFile;
-
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
-class PartOne {
-
-    private PartOne() {
-    }
+public class PartOne {
+    /*
+    forward 5
+    down 5
+    forward 8
+    up 3
+    down 8
+    forward 2
+     */
 
     public static int solvePartOne(String path) {
 
-        final String FORWARD = "forward";
-        final String UP = "up";
-        final String DOWN = "down";
-        List<String> dataList = getDataFromFile(path);
+        List<String> dataList = DataReader.getDataFromFile(path);
 
         if (dataList.isEmpty()) {
             return 0;
         }
-
-        List<String> forwardList = getDataStream(dataList, FORWARD, false).toList();
-
-        List<String> depthList = getDataStream(dataList, FORWARD, true).toList();
-
-        Integer forwardSum = getSumFilteredByName(forwardList, FORWARD);
-        Integer upSum = getSumFilteredByName(depthList, UP);
-        Integer downSum = getSumFilteredByName(depthList, DOWN);
-
-        return Math.abs(upSum - downSum) * forwardSum;
+        return calculate(parse(dataList));
     }
 
-    private static Stream<String> getDataStream(List<String> dataList, String name, boolean reverseFilter) {
-        return dataList.stream().filter(nameFilter(name, reverseFilter));
+    private static List<Command> parse(List<String> dataList) {
+        return dataList.stream().map(Command::new).toList();
     }
 
-    private static Integer getSumFilteredByName(List<String> dataList, String name) {
-        return getDataStream(dataList, name, false).map(PartOne::getIntFrom).reduce(Integer::sum).orElse(0);
-    }
+    private static int calculate(List<Command> commands) {
+        int forwardValue = 0;
+        int depthValue = 0;
 
-    private static int getIntFrom(String f) {
-        return Integer.parseInt(f.substring(f.length() - 1));
-    }
-
-    private static Predicate<String> nameFilter(String name, boolean reverse) {
-        if (!reverse) {
-            return n -> n.startsWith(name);
-        } else {
-            return n -> !n.startsWith(name);
+        for (Command command : commands) {
+            switch (command.getDirection()) {
+                case "forward" -> forwardValue += command.getValue();
+                case "up" -> depthValue -= command.getValue();
+                case "down" -> depthValue += command.getValue();
+                default -> System.out.println("unknown instruction: " + command.getDirection());
+            }
         }
+        return forwardValue * depthValue;
     }
 }

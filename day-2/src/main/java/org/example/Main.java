@@ -17,10 +17,7 @@ public class Main {
 
         String path = ("day-2/src/main/resources/data.txt");
 
-//        System.out.println(solvePartOne(path));
-//        System.out.println(solvePartTwo(path));
-
-        PartOneDifferentSolution.solvePartOne("day-2/src/main/resources/dummy-input.txt");
-
+        System.out.println(solvePartOne(path));
+        System.out.println(solvePartTwo(path));
     }
 }

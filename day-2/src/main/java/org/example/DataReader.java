@@ -8,22 +8,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class DataReader {
+public class DataReader {
 
     private DataReader() {
     }
 
     public static List<String> getDataFromFile(String path) {
+        List<String> dataList = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
-            List<String> dataList = new ArrayList<>();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 dataList.add(line);
             }
-            return dataList;
         } catch (IOException e) {
             e.printStackTrace();
-            return emptyList();
         }
+        return dataList;
     }
 }

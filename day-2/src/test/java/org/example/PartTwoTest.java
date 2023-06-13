@@ -23,7 +23,7 @@ class PartTwoTest {
     @Test
     void shouldRunPartOneOnEmptyList() {
         //when
-        int solution = PartOne.solvePartOne(EMPTY);
+        int solution = PartTwo.solvePartTwo(EMPTY);
 
         //then
         assertEquals(0, solution);
@@ -32,7 +32,7 @@ class PartTwoTest {
     @Test
     void shouldRunPartOneOnOneValueList() {
         //when
-        int solution = PartOne.solvePartOne(ONE_VALUE_LIST);
+        int solution = PartTwo.solvePartTwo(ONE_VALUE_LIST);
 
         //then
         assertEquals(0, solution);
@@ -41,7 +41,7 @@ class PartTwoTest {
     @Test
     void shouldRunPartOneOnSameValueList() {
         //when
-        int solution = PartOne.solvePartOne(SAME_VALUE_LIST);
+        int solution = PartTwo.solvePartTwo(SAME_VALUE_LIST);
 
         //then
         assertEquals(0, solution);
