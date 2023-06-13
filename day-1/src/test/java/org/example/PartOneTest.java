@@ -1,22 +1,24 @@
 package org.example;
 
+import static java.util.Collections.emptyList;
 import static org.example.PartOne.runPartOne;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class PartOneTest {
 
     private static final Integer WINDOW_SIZE = 1;
-    private static final String PATH = "src/test/resources/input.txt";
-    private static final String EMPTY_LIST = "src/test/resources/empty.txt";
-    private static final String ONE_ELEMENT_LIST = "src/test/resources/one-element.txt";
-    private static final String SAME_ELEMENT_LIST = "src/test/resources/same-element.txt";
+    private static final List<Integer> INPUT_LIST = List.of(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
+    private static final List<Integer> EMPTY_LIST = emptyList();
+    private static final List<Integer> ONE_ELEMENT_LIST = List.of(199);
+    private static final List<Integer> SAME_ELEMENT_LIST = List.of(199, 199, 199, 199, 199, 199, 199, 199, 199, 199, 199);
 
     @Test
     void shouldRunPartOne() {
         //when
-        int solution = runPartOne(PATH, WINDOW_SIZE);
+        int solution = runPartOne(INPUT_LIST, WINDOW_SIZE);
         assertEquals(7,solution);
     }
 

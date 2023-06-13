@@ -1,4 +1,4 @@
-package org.example;
+package org.example.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,12 +11,8 @@ public class DataReader {
     private DataReader() {
     }
 
-    public static List<Integer> convertToInteger(List<String> inputList) {
-        return inputList.stream().filter(DataReader::isDigit).map(Integer::parseInt).toList();
-    }
-
     public static List<String> readFileAsList(String path) {
-            List<String> stringList = new ArrayList<>();
+        List<String> stringList = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -26,14 +22,5 @@ public class DataReader {
             e.printStackTrace();
         }
         return stringList;
-    }
-
-    private static boolean isDigit(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
     }
 }

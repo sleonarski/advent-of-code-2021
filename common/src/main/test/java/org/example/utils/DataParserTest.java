@@ -1,32 +1,27 @@
-package org.example;
+package org.example.utils;
 
 import static java.util.Collections.emptyList;
-import static org.example.DataReader.convertToInteger;
-import static org.example.DataReader.readFileAsList;
+import static org.example.utils.DataParser.convertToInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import java.util.Objects;
 import org.junit.jupiter.api.Test;
 
-class DataReaderTest {
+class DataParserTest {
 
-    private static final String PATH = "src/test/resources/input.txt";
+    private static final List<String> INPUT_LIST = List.of("199", "200", "208", "210", "200", "207", "240", "269", "260", "263");
     private static final List<String> EMPTY_LIST = emptyList();
     private static final List<String> ONE_ELEMENT = List.of("240");
     private static final List<String> SAME_ELEMENT = List.of("240", "240", "240", "240", "240", "240", "240", "240", "240", "240", "240", "240");
     private static final List<String> NOT_NUMBER = List.of("aas", "tre", "ldsf", "asf", "bbb", "mbnd", "wer");
 
-    List<String> testList = List.of("2","3","4","5","6");
-
     @Test
-    void shouldReadFileAsList() {
+    void shouldReturnListOfIntegers() {
         //when
-        List<String> dataList = readFileAsList(PATH);
+        List<Integer> integerList = convertToInteger(INPUT_LIST);
 
         //then
-        assertEquals(10, dataList.size());
-        assertInstanceOf(String.class, dataList.get(0));
+        assertEquals(10, integerList.size());
     }
 
     @Test
@@ -54,16 +49,12 @@ class DataReaderTest {
         List<Integer> integersList = convertToInteger(SAME_ELEMENT);
 
         //then
-        assertEquals(12,integersList.size());
+        assertEquals(12, integersList.size());
         assertInstanceOf(Integer.class, integersList.get(0));
     }
 
     @Test
-    void shouldEmptyList() {
-        //when
-        List<Integer> integersList = convertToInteger(NOT_NUMBER);
-
-        //then
-        assertEquals(0,integersList.size());
+    void shouldThrowNumberFormatException() {
+        assertThrowsExactly(NumberFormatException.class, () -> convertToInteger(NOT_NUMBER));
     }
 }

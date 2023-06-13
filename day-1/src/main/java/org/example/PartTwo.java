@@ -1,24 +1,22 @@
 package org.example;
 
-import java.awt.Window;
+import static org.example.utils.DataParser.parseInput;
+
 import java.util.List;
 
-import static org.example.DataReader.convertToInteger;
-import static org.example.DataReader.readFileAsList;
 
-class PartTwo {
+public class PartTwo {
 
     private PartTwo() {
     }
 
     public static int runPartTwo(String path, int windowSize) {
+        return runPartTwo(parseInput(path), windowSize);
+    }
 
-        List<String> inputList = readFileAsList(path);
-        List<Integer> dataList = convertToInteger(inputList);
-
-        return dataList.stream().collect(() -> new AggregatedWindow(windowSize), AggregatedWindow::nextNumber, (aw1, aw2) -> {
+    public static int runPartTwo(List<Integer> parsedInput, int windowSize) {
+        return parsedInput.stream().collect(() -> new AggregatedWindow(windowSize), AggregatedWindow::nextNumber, (aw1, aw2) -> {
             throw new CollectingException();
         }).getCount();
-
     }
 }
