@@ -1,6 +1,6 @@
-package org.example;
+package org.example.day1;
 
-import static org.example.utils.DataParser.parseInput;
+import static org.example.common.utils.DataParser.parseInput;
 
 import java.util.List;
 

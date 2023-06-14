@@ -1,6 +1,6 @@
-package org.example.utils;
+package org.example.common.utils;
 
-import static org.example.utils.DataReader.readFileAsList;
+import static org.example.common.utils.DataReader.readFileAsList;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package org.example.utils;
+package org.example.common.utils;
 
 import static java.util.Collections.emptyList;
-import static org.example.utils.DataParser.convertToInteger;
+import static org.example.common.utils.DataParser.convertToInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;

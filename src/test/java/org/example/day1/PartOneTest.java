@@ -1,7 +1,7 @@
-package org.example;
+package org.example.day1;
 
 import static java.util.Collections.emptyList;
-import static org.example.PartOne.runPartOne;
+import static org.example.day1.PartOne.runPartOne;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
