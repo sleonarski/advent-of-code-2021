@@ -2,6 +2,12 @@ package org.example;
 
 import static java.util.Collections.emptyList;
 import static org.example.DayTwoPartOne.solvePartOne;
+import static org.example.MockData.EMPTY;
+import static org.example.MockData.INVALID_VALUE_LIST;
+import static org.example.MockData.ONE_VALUE_LIST;
+import static org.example.MockData.SAME_VALUE_LIST;
+import static org.example.MockData.TEST_DATA;
+import static org.example.MockData.TEST_PATH;
 import static org.example.utils.DataParser.convertToInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,16 +17,19 @@ import java.util.List;
 
 class DayTwoPartOneTest {
 
-    private static final List<String> TEST_DATA = List.of("forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2");
-    private static final List<String> EMPTY = emptyList();
-    private static final List<String> ONE_VALUE_LIST = List.of("forward 5");
-    private static final List<String> SAME_VALUE_LIST = List.of("forward 5", "forward 5", "forward 5", "forward 5", "forward 5", "forward 5");
-    private static final List<String> INVALID_VALUE_LIST = List.of("forward ex", "random value", "245 52 8", "e", " ", "TestV4lU3");
-
     @Test
     void shouldRunPartOne() {
         //when
         int solution = solvePartOne(TEST_DATA);
+
+        //then
+        assertEquals(150, solution);
+    }
+
+    @Test
+    void shouldRunPartOneWithPathInput() {
+        //when
+        int solution = solvePartOne(TEST_PATH);
 
         //then
         assertEquals(150, solution);
@@ -56,6 +65,6 @@ class DayTwoPartOneTest {
     @Test
     void shouldRunPartOneOnInvalidValueList() {
         //expected
-        assertThrowsExactly(RuntimeException.class, () -> solvePartOne(INVALID_VALUE_LIST));
+        assertThrowsExactly(IllegalArgumentException.class, () -> solvePartOne(INVALID_VALUE_LIST));
     }
 }
