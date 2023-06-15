@@ -17,6 +17,6 @@ public class PartTwo {
         if (dataList.isEmpty()) {
             return 0;
         }
-        return new SimpleSubmarine(parse(dataList), true).getSumValue();
+        return new AdvancedSubmarine().run(parse(dataList));
     }
 }

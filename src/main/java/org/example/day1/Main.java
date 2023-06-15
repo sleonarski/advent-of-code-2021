@@ -1,13 +1,16 @@
 package org.example.day1;
 
+import static org.example.day1.PartOne.*;
+import static org.example.day1.PartTwo.*;
+
 public class Main {
 
     public static void main(String[] args) {
 
         String path = "src/main/resources/day1/input.txt";
 
-        System.out.println(PartOne.runPartOne(path, 1));
-
-        System.out.println(PartTwo.runPartTwo(path, 3));
+        // Day One
+        System.out.println(runPartOne(path, 1));
+        System.out.println(runPartTwo(path, 3));
     }
 }

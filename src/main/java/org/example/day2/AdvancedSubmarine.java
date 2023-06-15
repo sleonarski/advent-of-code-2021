@@ -2,12 +2,12 @@ package org.example.day2;
 
 import java.util.List;
 
-public class SimpleSubmarine implements Submarine {
+public class AdvancedSubmarine implements Submarine{
 
     private int forwardValue;
     private int depthValue;
 
-    public SimpleSubmarine() {
+    public AdvancedSubmarine() {
         this.forwardValue = 0;
         this.depthValue = 0;
     }
@@ -15,11 +15,15 @@ public class SimpleSubmarine implements Submarine {
     @Override
     public int run(List<Command> commands) {
 
+        int aim = 0;
         for (Command command : commands) {
             switch (command.getDirection()) {
-                case "forward" -> forwardValue += command.getValue();
-                case "up" -> depthValue -= command.getValue();
-                case "down" -> depthValue += command.getValue();
+                case "forward" -> {
+                    forwardValue += command.getValue();
+                    depthValue += aim * command.getValue();
+                }
+                case "up" -> aim -= command.getValue();
+                case "down" -> aim += command.getValue();
                 default -> System.out.println("unknown instruction: " + command.getDirection());
             }
         }

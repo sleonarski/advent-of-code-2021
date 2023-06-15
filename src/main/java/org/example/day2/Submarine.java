@@ -1,6 +1,8 @@
 package org.example.day2;
 
+import java.util.List;
+
 public interface Submarine {
 
-    void run();
+    int run(List<Command> commandList);
 }

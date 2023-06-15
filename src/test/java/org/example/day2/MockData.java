@@ -2,6 +2,7 @@ package org.example.day2;
 
 import static java.util.Collections.emptyList;
 
+import java.util.Collections;
 import java.util.List;
 
 public class MockData {
@@ -12,4 +13,7 @@ public class MockData {
     public static final List<String> ONE_VALUE_LIST = List.of("forward 5");
     public static final List<String> SAME_VALUE_LIST = List.of("forward 5", "forward 5", "forward 5", "forward 5", "forward 5", "forward 5");
     public static final List<String> INVALID_VALUE_LIST = List.of("forward ex", "random value", "245 52 8", "e", " ", "TestV4lU3");
+
+    public static final List<Command> TEST_COMMANDS = Command.parse(List.of("forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"));
+    public static final List<Command> TEST_ZERO_MESSAGES_COMMANDS = Command.parse(List.of());
 }
