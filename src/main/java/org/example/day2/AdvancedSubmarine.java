@@ -12,6 +12,7 @@ public class AdvancedSubmarine implements Submarine{
         this.depthValue = 0;
     }
 
+    //TODO extract this logic of method to another class
     @Override
     public int run(List<Command> commands) {
 
@@ -25,6 +26,7 @@ public class AdvancedSubmarine implements Submarine{
                 case "up" -> aim -= command.getValue();
                 case "down" -> aim += command.getValue();
                 default -> System.out.println("unknown instruction: " + command.getDirection());
+                //TODO: add exception here
             }
         }
         return forwardValue * depthValue;

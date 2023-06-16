@@ -8,9 +8,9 @@ public class Command {
 
     private final String direction;
     private final int value;
-    private static final Pattern COMMAND_PATTERN = Pattern.compile("(\\w+)\\s(\\d)");
+    private static final Pattern COMMAND_PATTERN = Pattern.compile("(\\w+)\\s(\\d+)");
 
-    private Command (String direction, int value) {
+    private Command(String direction, int value) {
         this.direction = direction;
         this.value = value;
     }
@@ -20,9 +20,12 @@ public class Command {
 
         if (matcher.matches()) {
             return new Command(matcher.group(1), Integer.parseInt(matcher.group(2)));
-        }else throw new IllegalArgumentException("invalid input: " + input);
+        } else {
+            throw new IllegalArgumentException("invalid input: " + input);
+        }
     }
 
+    //TODO Its should be in different class - utils or something
     public static List<Command> parse(List<String> dataList) {
         return dataList.stream().map(Command::validInput).toList();
     }
