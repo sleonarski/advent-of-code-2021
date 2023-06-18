@@ -2,8 +2,8 @@ package org.example.day2;
 
 import java.util.List;
 
-import static org.example.day2.Command.*;
 import static org.example.common.utils.DataReader.readFileAsList;
+import static org.example.day2.utils.DataParser.parse;
 
 public class PartOne {
 
@@ -17,6 +17,8 @@ public class PartOne {
         if (dataList.isEmpty()) {
             return 0;
         }
-        return new SimpleSubmarine().run(parse(dataList));
+        SimpleSubmarine simpleSubmarine = new SimpleSubmarine(parse(dataList));
+        simpleSubmarine.run();
+        return simpleSubmarine.getDirection();
     }
 }

@@ -25,11 +25,6 @@ public class Command {
         }
     }
 
-    //TODO Its should be in different class - utils or something
-    public static List<Command> parse(List<String> dataList) {
-        return dataList.stream().map(Command::validInput).toList();
-    }
-
     public String getDirection() {
         return direction;
     }
