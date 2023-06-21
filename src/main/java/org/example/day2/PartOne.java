@@ -17,8 +17,8 @@ public class PartOne {
         if (dataList.isEmpty()) {
             return 0;
         }
-        SimpleSubmarine simpleSubmarine = new SimpleSubmarine(parse(dataList));
-        simpleSubmarine.run();
+        SimpleSubmarine simpleSubmarine = new SimpleSubmarine();
+        simpleSubmarine.run(parse(dataList));
         return simpleSubmarine.getDirection();
     }
 }

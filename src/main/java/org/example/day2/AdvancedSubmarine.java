@@ -1,10 +1,6 @@
 package org.example.day2;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.example.day2.CommandInterpreter.advancedInterpretCommands;
-import static org.example.day2.CommandInterpreter.simpleInterpretCommands;
 
 public class AdvancedSubmarine implements Submarine{
 
@@ -13,8 +9,7 @@ public class AdvancedSubmarine implements Submarine{
     private List<Command> commands;
     private int direction;
 
-    public AdvancedSubmarine(List<Command> commands) {
-        this.commands = new ArrayList<>(commands);
+    public AdvancedSubmarine() {
         this.forwardValue = 0;
         this.depthValue = 0;
         this.direction = 0;
@@ -53,7 +48,20 @@ public class AdvancedSubmarine implements Submarine{
     }
 
     @Override
-    public void run() {
-        setDirection(advancedInterpretCommands(this));
+    public void run(List<Command> commands) {
+
+        int aim = 0;
+        for (Command command : commands) {
+            switch (command.getDirection()) {
+                case "forward" -> {
+                    forwardValue += command.getValue();
+                    depthValue += aim * command.getValue();
+                }
+                case "up" -> aim -= command.getValue();
+                case "down" -> aim += command.getValue();
+                default -> throw new RuntimeException();
+            }
+        }
+        setDirection(forwardValue * depthValue);
     }
 }

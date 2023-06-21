@@ -17,8 +17,8 @@ public class PartTwo {
         if (dataList.isEmpty()) {
             return 0;
         }
-        AdvancedSubmarine advancedSubmarine = new AdvancedSubmarine(parse(dataList));
-        advancedSubmarine.run();
+        AdvancedSubmarine advancedSubmarine = new AdvancedSubmarine();
+        advancedSubmarine.run(parse(dataList));
         return advancedSubmarine.getDirection();
     }
 }

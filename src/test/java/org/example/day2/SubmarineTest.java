@@ -10,10 +10,10 @@ class SubmarineTest {
     @Test
     void shouldSimpleSubmarineCalculateCorrectly() {
         //given
-        SimpleSubmarine submarine = new SimpleSubmarine(TEST_COMMANDS);
+        SimpleSubmarine submarine = new SimpleSubmarine();
 
         //when
-        submarine.run();
+        submarine.run(TEST_COMMANDS);
 
         //then
         Assertions.assertEquals(150, submarine.getDirection());
@@ -22,10 +22,10 @@ class SubmarineTest {
     @Test
     void shouldAdvancedSubmarineCalculateCorrectly() {
         //given
-        AdvancedSubmarine submarine = new AdvancedSubmarine(TEST_COMMANDS);
+        AdvancedSubmarine submarine = new AdvancedSubmarine();
 
         //when
-        submarine.run();
+        submarine.run(TEST_COMMANDS);
 
         //then
         Assertions.assertEquals(900, submarine.getDirection());
@@ -34,10 +34,10 @@ class SubmarineTest {
     @Test
     void shouldSimpleSubmarineReturnZero() {
         //given
-        SimpleSubmarine submarine = new SimpleSubmarine(TEST_ZERO_MESSAGES_COMMANDS);
+        SimpleSubmarine submarine = new SimpleSubmarine();
 
         //when
-        submarine.run();
+        submarine.run(TEST_ZERO_MESSAGES_COMMANDS);
 
         //then
         Assertions.assertEquals(0, submarine.getDirection());
@@ -46,10 +46,10 @@ class SubmarineTest {
     @Test
     void shouldAdvancedSubmarineReturnZero() {
         //given
-        AdvancedSubmarine submarine = new AdvancedSubmarine(TEST_ZERO_MESSAGES_COMMANDS);
+        AdvancedSubmarine submarine = new AdvancedSubmarine();
 
         //when
-        submarine.run();
+        submarine.run(TEST_ZERO_MESSAGES_COMMANDS);
 
         //then
         Assertions.assertEquals(0, submarine.getDirection());

@@ -1,9 +1,6 @@
 package org.example.day2;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.example.day2.CommandInterpreter.*;
 
 public class SimpleSubmarine implements Submarine {
 
@@ -12,10 +9,9 @@ public class SimpleSubmarine implements Submarine {
     private List<Command> commands;
     private int direction;
 
-    public SimpleSubmarine(List<Command> commands) {
+    public SimpleSubmarine() {
         this.forwardValue = 0;
         this.depthValue = 0;
-        this.commands = new ArrayList<>(commands);
     }
 
     public int getForwardValue() {
@@ -38,10 +34,6 @@ public class SimpleSubmarine implements Submarine {
         return commands;
     }
 
-    public void setCommands(List<Command> commands) {
-        this.commands = commands;
-    }
-
     public int getDirection() {
         return direction;
     }
@@ -51,7 +43,16 @@ public class SimpleSubmarine implements Submarine {
     }
 
     @Override
-    public void run() {
-        setDirection(simpleInterpretCommands(this));
+    public void run(List<Command> commands) {
+
+        for (Command command : commands) {
+            switch (command.getDirection()) {
+                case "forward" -> forwardValue += command.getValue();
+                case "up" -> depthValue -= command.getValue();
+                case "down" -> depthValue += command.getValue();
+                default -> throw new RuntimeException();
+            }
+        }
+        setDirection(forwardValue * depthValue);
     }
 }
