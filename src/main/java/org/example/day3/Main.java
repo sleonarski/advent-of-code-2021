@@ -1,5 +1,7 @@
 package org.example.day3;
 
+import org.example.common.utils.DataReader;
+
 import java.util.List;
 
 public class Main {
@@ -21,10 +23,11 @@ public class Main {
                 01010
                 """;
 
-        var gamma = 0L;
-        var epsilon = 0L;
+        StringBuilder gamma = new StringBuilder();
+        StringBuilder epsilon = new StringBuilder();
 
-        List<String> diagnosticReport = testData.lines().toList();
+        List<String> diagnosticReport = DataReader.readFileAsList("src/main/resources/day3/input.txt"); // 3813416
+//        List<String> diagnosticReport = testData.lines().toList();
 
         for (int i = 0; i < diagnosticReport.get(0).length(); i++) {
             int zeros = 0;
@@ -36,15 +39,22 @@ public class Main {
                     ones++;
                 }
             }
-            if (zeros > ones) {
-                gamma <<= 1;     // + 0
-                epsilon = (epsilon << 1) | 1; // + 1
+            if (ones > zeros) {
+                gamma.append("1");
+                epsilon.append("0");
             } else {
-                gamma = (gamma << 1) | 1;
-                epsilon <<= 1;
+                gamma.append("0");
+                epsilon.append("1");
             }
         }
-        System.out.println(String.valueOf(gamma * epsilon));
+        System.out.println(convert(gamma) * convert(epsilon));
     }
 
+    private static int convert(StringBuilder data) {
+        int convertedData = 0;
+        for (char c : data.toString().toCharArray()) {
+            convertedData = c == '0' ? convertedData << 1 : convertedData << 1 | 1;
+        }
+        return convertedData;
+    }
 }
